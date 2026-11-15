@@ -1,0 +1,24 @@
+{
+  "name": "classic-eleven-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Classic Eleven / Shoply - Node.js + Supabase backend API",
+  "scripts": {
+    "setup": "node src/setup-admin.js",
+    "start": "node src/app.js",
+    "local": "node src/local.js",
+    "db:migrate": "node src/migrate.js",
+    "db:reset": "node src/reset-database.js",
+    "admin:bootstrap": "node src/bootstrap-admin.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "@electric-sql/pglite-socket": "^0.2.19",
+    "dotenv": "^16.6.1",
+    "pg": "^8.16.3"
+  }
+}
