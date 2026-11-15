@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Bloom & Blossom — Handcrafted fresh bouquets, luxury flower boxes, and thoughtful arrangements delivered with care.">
+  <meta name="theme-color" content="#fbf9f6">
+  <title>Bloom & Blossom — Thoughtful flowers, handcrafted & delivered fresh</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <script src="auth.js"></script>
+  <script>requireLogin();</script>
+
+  <div class="announce">
+    <div class="container">
+      <span class="announce-sparkle">✦</span>
+      <span>Complimentary handwritten note &amp; free local delivery on orders over $75</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Bloom & Blossom home">Bloom &amp; Blossom<span>.</span></a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" class="active" aria-current="page">Home</a>
+          <a href="products.html">Collection</a>
+          <a href="#categories">Categories</a>
+          <a href="cart.html" class="cart-link" aria-label="Shopping bag">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8z" />
+              <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+            </svg>
+            <span class="cart-text">Bag</span>
+            <span class="cart-badge">0</span>
+          </a>
+          <span id="user-greeting"></span>
+          <button type="button" id="logout-btn">Logout</button>
+        </div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <div class="hero-pill-badge">
+            <span class="pulse-dot"></span>
+            <span>Artisanal Floristry · Fresh Daily Delivery</span>
+          </div>
+          <h1>Flowers that speak when <em>words fall short.</em></h1>
+          <p>Thoughtfully curated seasonal bouquets, hand-tied by master florists and delivered fresh to every doorstep with our signature handwritten note.</p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary btn-lg">
+              Explore the Collection
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 4px;">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#categories" class="btn btn-outline btn-lg">Browse by Occasion</a>
+          </div>
+
+          <!-- Social Proof & Customer Reviews -->
+          <div class="hero-social-proof">
+            <div class="avatar-group">
+              <span class="avatar-disc av-1" title="Customer">🌸</span>
+              <span class="avatar-disc av-2" title="Customer">💐</span>
+              <span class="avatar-disc av-3" title="Customer">🌿</span>
+              <span class="avatar-disc av-4" title="Customer">✨</span>
+            </div>
+            <div class="proof-info">
+              <div class="stars">★★★★★ <strong>4.9 / 5.0</strong></div>
+              <span class="proof-count">Loved by 12,500+ happy recipients · Freshness Guaranteed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modern Hero Visual Stage -->
+        <div class="hero-stage">
+          <div class="hero-stage-glow"></div>
+          <div class="hero-img-card">
+            <img src="images/roses/peach-rose-01.jpg" alt="A hand-tied luxury bouquet of soft peach and blush roses" fetchpriority="high">
+          </div>
+
+          <!-- Floating Card: Bestseller Pill -->
+          <div class="floating-chip chip-top-right">
+            <img src="images/flower-boxes/luxury-box-01.jpg" alt="The Luxury Hatbox" class="chip-thumb">
+            <div class="chip-content">
+              <span class="chip-eyebrow">★ Atelier Bestseller</span>
+              <strong>The Pastel Hatbox</strong>
+              <span class="chip-detail">$45.00 · Free Care Kit</span>
+            </div>
+          </div>
+
+          <!-- Floating Card: Freshness Guarantee -->
+          <div class="floating-chip chip-bottom-left">
+            <div class="chip-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21c0-6 0-9 7-14-1 7-3 11-7 14z" />
+                <path d="M12 21C12 15 11 12 5 9c0 6 3 10 7 12z" />
+              </svg>
+            </div>
+            <div class="chip-content">
+              <strong>7-Day Freshness Guarantee</strong>
+              <span>Directly cut &amp; delivered in climate care</span>
+            </div>
+          </div>
+
+          <!-- Floating Pill: Live Dispatch -->
+          <div class="floating-live-pill">
+            <span class="pulse-dot"></span>
+            <span>Same-Day Delivery Available Today</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Highlights Strip -->
+    <div class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon-box t-sage">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21c0-6 0-9 7-14-1 7-3 11-7 14z" />
+              <path d="M12 21C12 15 11 12 5 9c0 6 3 10 7 12z" />
+            </svg>
+          </div>
+          <div>
+            <strong>Farm-to-Vase Freshness</strong>
+            <span>Sourced daily from ethical local growers</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box t-rose">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7h11v9H3z" />
+              <path d="M14 10h4l3 3v3h-7" />
+              <circle cx="7" cy="17" r="1.6" />
+              <circle cx="17" cy="17" r="1.6" />
+            </svg>
+          </div>
+          <div>
+            <strong>Same-Day Hand Delivery</strong>
+            <span>Real-time courier dispatch across the city</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box t-gold">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M12 3c2 2 2 4 0 6-2-2-2-4 0-6zM12 21c-2-2-2-4 0-6 2 2 2 4 0 6zM3 12c2-2 4-2 6 0-2 2-4 2-6 0zM21 12c-2 2-4 2-6 0 2-2 4-2 6 0z" />
+            </svg>
+          </div>
+          <div>
+            <strong>Master Atelier Hand-tied</strong>
+            <span>Arranged by passionate artisan florists</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box t-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 11h16v9H4z" />
+              <path d="M3 7h18v4H3zM12 7v13" />
+              <path d="M12 7C10 3 7 4 8 6s4 1 4 1zm0 0c2-4 5-3 4-1s-4 1-4 1z" />
+            </svg>
+          </div>
+          <div>
+            <strong>Handwritten Card Included</strong>
+            <span>Complimentary Italian card &amp; care sachet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Bouquets -->
+    <section class="container" id="featured">
+      <div class="section-title center">
+        <h2>Curated Bouquets</h2>
+        <p>Our most celebrated floral designs, chosen for lasting fragrance and sculptural elegance.</p>
+      </div>
+      <div class="product-grid" id="featured-products"></div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="container section-flush-top" id="categories">
+      <div class="section-title center">
+        <h2>Shop by Flower &amp; Category</h2>
+        <p>Explore classic roses, lively tulips, cheerful sunflowers, and luxury presentation boxes.</p>
+      </div>
+      <div class="category-grid">
+        <a href="products.html?cat=roses" class="category-card">
+          <img src="images/roses/red-roses-closeup-01.jpg" alt="Roses Collection" loading="lazy">
+          <h3>Roses</h3>
+        </a>
+        <a href="products.html?cat=tulips" class="category-card">
+          <img src="images/tulips/pink-tulips-01.jpg" alt="Tulips Collection" loading="lazy">
+          <h3>Tulips</h3>
+        </a>
+        <a href="products.html?cat=sunflowers" class="category-card">
+          <img src="images/sunflowers/sunflower-01.jpg" alt="Sunflowers Collection" loading="lazy">
+          <h3>Sunflowers</h3>
+        </a>
+        <a href="products.html?cat=lilies" class="category-card">
+          <img src="images/lilies/white-lily-01.jpg" alt="Lilies Collection" loading="lazy">
+          <h3>Lilies</h3>
+        </a>
+        <a href="products.html?cat=flower-boxes" class="category-card">
+          <img src="images/flower-boxes/luxury-box-01.jpg" alt="Luxury Flower Boxes" loading="lazy">
+          <h3>Luxury Boxes</h3>
+        </a>
+        <a href="products.html?cat=mixed" class="category-card">
+          <img src="images/mixed-bouquets/mixed-01.jpg" alt="Mixed Bouquets" loading="lazy">
+          <h3>Mixed Bouquets</h3>
+        </a>
+        <a href="products.html?cat=wedding" class="category-card">
+          <img src="images/wedding/bridal-01.jpg" alt="Wedding & Bridal Flowers" loading="lazy">
+          <h3>Wedding</h3>
+        </a>
+        <a href="products.html?cat=occasions" class="category-card">
+          <img src="images/occasions/anniversary-01.jpg" alt="Special Occasions" loading="lazy">
+          <h3>Occasions</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- Editorial Quote Banner -->
+    <div style="background: var(--bg-muted); padding: 56px 24px; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container" style="max-width: 800px;">
+        <p style="font-family: var(--font-display); font-size: clamp(1.4rem, 2.8vw, 1.95rem); font-style: italic; line-height: 1.4; color: var(--text); margin-bottom: 16px;">
+          “The arrangements arrived in pristine bloom, exquisitely wrapped, and stayed breathtaking for over two weeks.”
+        </p>
+        <span style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--primary);">
+          Vogue Living · Editorial Pick
+        </span>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-title center">
+          <h2 id="how-title">Effortless Gifting in Three Steps</h2>
+          <p>From atelier selection to doorstep presentation, seamless every time.</p>
+        </div>
+        <ol class="how-grid">
+          <li>
+            <span class="how-num">1</span>
+            <h3>Choose Your Bloom</h3>
+            <p>Select from hand-tied seasonal bouquets, luxury hatboxes, or custom vase designs.</p>
+          </li>
+          <li>
+            <span class="how-num">2</span>
+            <h3>Add a Personal Note</h3>
+            <p>Compose a heartfelt message and our calligraphers transcribe it on fine Italian stationery.</p>
+          </li>
+          <li>
+            <span class="how-num">3</span>
+            <h3>Atelier Delivery</h3>
+            <p>Crafted fresh the morning of delivery and transported in temperature-controlled care.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- Newsletter Strip -->
+    <div class="footer-newsletter-wrap">
+      <div class="container footer-newsletter">
+        <div class="newsletter-text">
+          <h3>Join the Florist's Circle</h3>
+          <p>Receive private previews of rare seasonal harvests, bespoke floral styling tips, and $15 off your inaugural order.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); if (window.showToast) showToast('Thank you for subscribing to Bloom &amp; Blossom!'); this.reset();">
+          <input type="email" placeholder="Enter your email address..." required aria-label="Email address for floral newsletter">
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Bloom &amp; Blossom home">Bloom &amp; Blossom<span>.</span></a>
+          <p>An artisanal floral atelier handcrafting luxury bouquets, bespoke bridal collections, and fine presentation boxes delivered with uncompromising freshness across Phnom Penh.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line><circle cx="12" cy="12" r="10"></circle></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+          <div style="font-size: 0.8125rem; color: #a89d9b; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="color: var(--accent-gold);">✦</span> 100% Farm-Fresh Guarantee
+          </div>
+        </div>
+
+        <!-- Column 2: Floral Collection -->
+        <div class="footer-col">
+          <h4>Floral Collections</h4>
+          <ul>
+            <li><a href="products.html">All Bouquets (60)</a></li>
+            <li><a href="products.html?cat=roses">Signature Velvet Roses</a></li>
+            <li><a href="products.html?cat=tulips">Fresh Holland Tulips</a></li>
+            <li><a href="products.html?cat=sunflowers">Vibrant Sunflowers</a></li>
+            <li><a href="products.html?cat=lilies">Scented Oriental Lilies</a></li>
+            <li><a href="products.html?cat=flower-boxes">Luxury Hatbox Arrangements</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Occasions & Gifting -->
+        <div class="footer-col">
+          <h4>Occasions &amp; Care</h4>
+          <ul>
+            <li><a href="products.html?cat=wedding">Bridal &amp; Wedding Blooms</a></li>
+            <li><a href="products.html?cat=occasions">Anniversary &amp; Romance</a></li>
+            <li><a href="products.html?cat=mixed">Curated Seasonal Edits</a></li>
+            <li><a href="cart.html">View Shopping Bag</a></li>
+            <li><a href="admin/index.html">Merchant Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Atelier & Concierge -->
+        <div class="footer-col">
+          <h4>Atelier Concierge</h4>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">Phnom Penh Atelier</strong>
+              <span>Preah Sihanouk Blvd, Phnom Penh</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">+855 (0) 23 888 999</strong>
+              <span>Daily: 8:00 AM – 7:00 PM</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">concierge@bloomblossom.com</strong>
+              <span>Custom bespoke inquiries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust & Payment Methods -->
+      <div class="footer-trust-row">
+        <div>
+          <span>Accepted Payment Methods &amp; Secured Gateways</span>
+        </div>
+        <div class="payment-badges">
+          <span class="payment-pill">🇰🇭 KHQR Bakong</span>
+          <span class="payment-pill">ABA PAY</span>
+          <span class="payment-pill">Visa / Mastercard</span>
+          <span class="payment-pill">Cash on Delivery</span>
+          <span class="payment-pill" style="border-color: rgba(37, 102, 54, 0.4); color: #8dd99f;">🔒 256-Bit SSL</span>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <span>© 2026 Bloom &amp; Blossom Floral Boutique. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="products.html">Atelier Catalog</a>
+          <a href="admin/index.html">Admin Portal</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Delivery</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chat-widget">
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-header">
+        <span>Florist Concierge</span>
+        <button type="button" id="chat-close" aria-label="Close chat">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Ask about flowers or custom orders..." maxlength="300" autocomplete="off" aria-label="Chat message">
+        <button type="button" id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="assets/js/data/store.js"></script>
+  <script src="assets/js/shoply-theme.js"></script>
+  <script src="cart.js"></script>
+  <script src="chat.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

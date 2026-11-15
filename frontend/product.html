@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouquet Details — Bloom &amp; Blossom</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <script src="auth.js"></script>
+  <script>requireLogin();</script>
+
+  <div class="announce">
+    <div class="container">
+      <span class="announce-sparkle">✦</span>
+      <span>Complimentary handwritten note &amp; free local delivery on orders over $75</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Bloom & Blossom home">Bloom &amp; Blossom<span>.</span></a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Collection</a>
+          <a href="index.html#categories">Categories</a>
+          <a href="cart.html" class="cart-link" aria-label="Shopping bag">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+            </svg>
+            <span class="cart-text">Bag</span>
+            <span class="cart-badge">0</span>
+          </a>
+          <span id="user-greeting"></span>
+          <button type="button" id="logout-btn">Logout</button>
+        </div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container page-section">
+      <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+        <div class="crumbs">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="products.html">Collection</a>
+          <span aria-hidden="true">/</span>
+          <span id="crumb-name" aria-current="page">Bouquet</span>
+        </div>
+      </nav>
+
+      <div class="product-detail" id="product-detail">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="related-title section-title">
+        <h2>You Might Also Adore</h2>
+        <p>Similar seasonal creations curated by our florists</p>
+      </div>
+      <div class="product-grid" id="related"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- Newsletter Strip -->
+    <div class="footer-newsletter-wrap">
+      <div class="container footer-newsletter">
+        <div class="newsletter-text">
+          <h3>Join the Florist's Circle</h3>
+          <p>Receive private previews of rare seasonal harvests, bespoke floral styling tips, and $15 off your inaugural order.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); if (window.showToast) showToast('Thank you for subscribing to Bloom &amp; Blossom!'); this.reset();">
+          <input type="email" placeholder="Enter your email address..." required aria-label="Email address for floral newsletter">
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Bloom &amp; Blossom home">Bloom &amp; Blossom<span>.</span></a>
+          <p>An artisanal floral atelier handcrafting luxury bouquets, bespoke bridal collections, and fine presentation boxes delivered with uncompromising freshness across Phnom Penh.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line><circle cx="12" cy="12" r="10"></circle></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+          <div style="font-size: 0.8125rem; color: #a89d9b; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="color: var(--accent-gold);">✦</span> 100% Farm-Fresh Guarantee
+          </div>
+        </div>
+
+        <!-- Column 2: Floral Collection -->
+        <div class="footer-col">
+          <h4>Floral Collections</h4>
+          <ul>
+            <li><a href="products.html">All Bouquets (60)</a></li>
+            <li><a href="products.html?cat=roses">Signature Velvet Roses</a></li>
+            <li><a href="products.html?cat=tulips">Fresh Holland Tulips</a></li>
+            <li><a href="products.html?cat=sunflowers">Vibrant Sunflowers</a></li>
+            <li><a href="products.html?cat=lilies">Scented Oriental Lilies</a></li>
+            <li><a href="products.html?cat=flower-boxes">Luxury Hatbox Arrangements</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Occasions & Gifting -->
+        <div class="footer-col">
+          <h4>Occasions &amp; Care</h4>
+          <ul>
+            <li><a href="products.html?cat=wedding">Bridal &amp; Wedding Blooms</a></li>
+            <li><a href="products.html?cat=occasions">Anniversary &amp; Romance</a></li>
+            <li><a href="products.html?cat=mixed">Curated Seasonal Edits</a></li>
+            <li><a href="cart.html">View Shopping Bag</a></li>
+            <li><a href="admin/index.html">Merchant Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Atelier & Concierge -->
+        <div class="footer-col">
+          <h4>Atelier Concierge</h4>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">Phnom Penh Atelier</strong>
+              <span>Preah Sihanouk Blvd, Phnom Penh</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">+855 (0) 23 888 999</strong>
+              <span>Daily: 8:00 AM – 7:00 PM</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">concierge@bloomblossom.com</strong>
+              <span>Custom bespoke inquiries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust & Payment Methods -->
+      <div class="footer-trust-row">
+        <div>
+          <span>Accepted Payment Methods &amp; Secured Gateways</span>
+        </div>
+        <div class="payment-badges">
+          <span class="payment-pill">🇰🇭 KHQR Bakong</span>
+          <span class="payment-pill">ABA PAY</span>
+          <span class="payment-pill">Visa / Mastercard</span>
+          <span class="payment-pill">Cash on Delivery</span>
+          <span class="payment-pill" style="border-color: rgba(37, 102, 54, 0.4); color: #8dd99f;">🔒 256-Bit SSL</span>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <span>© 2026 Bloom &amp; Blossom Floral Boutique. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="products.html">Atelier Catalog</a>
+          <a href="admin/index.html">Admin Portal</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Delivery</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chat-widget">
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-header">
+        <span>Florist Concierge</span>
+        <button type="button" id="chat-close" aria-label="Close chat">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message..." maxlength="300" autocomplete="off" aria-label="Chat message">
+        <button type="button" id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="assets/js/data/store.js"></script>
+  <script src="assets/js/shoply-theme.js"></script>
+  <script src="cart.js"></script>
+  <script src="chat.js"></script>
+  <script src="app.js"></script>
+  <script>
+    function renderProductPage() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'), 10);
+      const product = products.find(p => p.id === id);
+
+      if (product && product.price > 0) {
+        document.title = `${product.name} — Bloom & Blossom`;
+        document.getElementById('crumb-name').textContent = product.name;
+        
+        let qty = 1;
+
+        document.getElementById('product-detail').innerHTML = `
+          <div>
+            <img src="${product.image}" alt="${product.name}" loading="eager">
+          </div>
+          <div class="details">
+            <span class="card-cat">${product.category.replace(/-/g, ' ')}</span>
+            <h1>${product.name}</h1>
+            <div class="price" id="product-total-price">$${product.price.toFixed(2)}</div>
+            <p class="lead">${product.desc}</p>
+            
+            <div class="qty-row">
+              <label for="qty-input">Quantity</label>
+              <div class="qty-control">
+                <button type="button" id="qty-dec" aria-label="Decrease quantity">−</button>
+                <input type="number" id="qty-input" value="1" min="1" max="99" readonly aria-label="Selected quantity">
+                <button type="button" id="qty-inc" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <div class="note-field">
+              <label for="item-note">Personal Handwritten Note (Complimentary)</label>
+              <textarea id="item-note" placeholder="Write a gift note or special instructions (e.g. 'Happy Anniversary, my love!')..."></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="add-to-cart-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+              </svg>
+              <span id="btn-label">Add to Bag · $${product.price.toFixed(2)}</span>
+            </button>
+
+            <ul class="perks">
+              <li>
+                <strong>Freshness Guaranteed</strong>
+                <span>Guaranteed to stay vibrant for at least 7 days with included flower food.</span>
+              </li>
+              <li>
+                <strong>Hand-Tied with Silk Ribbon</strong>
+                <span>Artisan crafted the morning of delivery in our floral atelier.</span>
+              </li>
+              <li>
+                <strong>Complimentary Calligraphy Card</strong>
+                <span>Your message written by hand on heavy Italian cardstock.</span>
+              </li>
+            </ul>
+          </div>
+        `;
+
+        const updateButtonLabel = () => {
+          const total = (product.price * qty).toFixed(2);
+          const lbl = document.getElementById('btn-label');
+          if (lbl) lbl.textContent = `Add to Bag · $${total}`;
+          const pr = document.getElementById('product-total-price');
+          if (pr) pr.textContent = `$${total}`;
+        };
+
+        document.getElementById('qty-inc').onclick = () => {
+          qty = Math.min(99, qty + 1);
+          document.getElementById('qty-input').value = qty;
+          updateButtonLabel();
+        };
+
+        document.getElementById('qty-dec').onclick = () => {
+          qty = Math.max(1, qty - 1);
+          document.getElementById('qty-input').value = qty;
+          updateButtonLabel();
+        };
+
+        const addBtn = document.getElementById('add-to-cart-btn');
+        addBtn.onclick = () => {
+          const note = document.getElementById('item-note').value.trim();
+          addToCart(product.id, qty, note);
+          addBtn.classList.remove('btn-primary');
+          addBtn.classList.add('btn-dark');
+          const btnLabel = document.getElementById('btn-label');
+          if (btnLabel) btnLabel.textContent = `✓ Added ${qty} to Bag!`;
+          if (typeof showToast === 'function') {
+            showToast(`Added ${qty} × ${product.name} to your bag`);
+          }
+          setTimeout(() => {
+            addBtn.classList.remove('btn-dark');
+            addBtn.classList.add('btn-primary');
+            updateButtonLabel();
+          }, 1500);
+        };
+
+        const related = products
+          .filter(p => p.category === product.category && p.id !== product.id && p.price > 0)
+          .slice(0, 4);
+
+        document.getElementById('related').innerHTML = related.length
+          ? related.map(p => `
+              <div class="product-card">
+                <a href="product.html?id=${p.id}" aria-label="${p.name}">
+                  <img src="${p.image}" alt="${p.name}" loading="lazy">
+                </a>
+                <div class="info">
+                  <span class="card-cat">${catLabel(p.category)}</span>
+                  <a href="product.html?id=${p.id}"><h3>${p.name}</h3></a>
+                  <div class="price">$${p.price.toFixed(2)}</div>
+                  <div class="card-actions">
+                    <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm btn-block">View Details</a>
+                  </div>
+                </div>
+              </div>
+            `).join('')
+          : '<p class="empty-state">No related bouquets found.</p>';
+      } else {
+        document.getElementById('product-detail').innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <h2>Arrangement Not Found</h2>
+            <p>This botanical arrangement may have sold out or been seasonal.</p>
+            <a href="products.html" class="btn btn-primary">Browse Full Collection</a>
+          </div>`;
+      }
+    }
+
+    renderProductPage();
+    window.addEventListener('catalog:updated', renderProductPage);
+  </script>
+</body>
+</html>

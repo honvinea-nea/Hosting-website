@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Customer Account — Bloom &amp; Blossom</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="announce">
+    <div class="container">
+      <span class="announce-sparkle">✦</span>
+      <span>Complimentary handwritten note &amp; free local delivery on orders over $75</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Bloom & Blossom home">Bloom &amp; Blossom<span>.</span></a>
+      <nav class="nav">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <div style="font-size: 2.2rem; text-align: center; margin-bottom: 8px;">🌸</div>
+      <h1>Create Account</h1>
+      <p class="subtitle">Join Bloom &amp; Blossom to experience artisan flower delivery</p>
+      
+      <div class="error-msg" id="error"></div>
+      <div class="success-msg" id="success"></div>
+      
+      <form id="register-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required placeholder="Jane Doe" minlength="2" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="At least 6 characters" minlength="6" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+      <p class="auth-footer">Already have an account? <a href="login.html">Sign in here</a></p>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    if (getSession()) {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const result = register(name, email, password);
+      const err = document.getElementById('error');
+      const ok = document.getElementById('success');
+      if (result.ok) {
+        err.style.display = 'none';
+        ok.textContent = 'Account created successfully! Redirecting…';
+        ok.style.display = 'block';
+        setTimeout(() => { window.location.href = 'index.html'; }, 700);
+      } else {
+        ok.style.display = 'none';
+        err.textContent = result.error;
+        err.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

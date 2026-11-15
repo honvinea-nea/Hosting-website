@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your shopping bag and secure checkout at Bloom & Blossom — review bouquets, enter delivery details, and complete your order.">
+  <title>Shopping Bag &amp; Checkout — Bloom &amp; Blossom</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <script src="auth.js"></script>
+  <script>requireLogin();</script>
+
+  <div class="announce">
+    <div class="container">
+      <span class="announce-sparkle">✦</span>
+      <span>Complimentary handwritten note &amp; free local delivery on orders over $75</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Bloom & Blossom home">Bloom &amp; Blossom<span>.</span></a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Collection</a>
+          <a href="index.html#categories">Categories</a>
+          <a href="cart.html" class="cart-link active" aria-current="page" aria-label="Shopping bag">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+            </svg>
+            <span class="cart-text">Bag</span>
+            <span class="cart-badge">0</span>
+          </a>
+          <span id="user-greeting"></span>
+          <button type="button" id="logout-btn">Logout</button>
+        </div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-controls="nav-links" aria-expanded="false">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container page-section">
+      <div class="section-title" id="page-title">
+        <h2>Your Shopping Bag</h2>
+        <p>Review your floral selections and proceed to delivery</p>
+      </div>
+
+      <ol class="steps" id="steps" aria-label="Checkout Progress Steps"></ol>
+
+      <div id="cart-content">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- Newsletter Strip -->
+    <div class="footer-newsletter-wrap">
+      <div class="container footer-newsletter">
+        <div class="newsletter-text">
+          <h3>Join the Florist's Circle</h3>
+          <p>Receive private previews of rare seasonal harvests, bespoke floral styling tips, and $15 off your inaugural order.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); if (window.showToast) showToast('Thank you for subscribing to Bloom &amp; Blossom!'); this.reset();">
+          <input type="email" placeholder="Enter your email address..." required aria-label="Email address for floral newsletter">
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Bloom &amp; Blossom home">Bloom &amp; Blossom<span>.</span></a>
+          <p>An artisanal floral atelier handcrafting luxury bouquets, bespoke bridal collections, and fine presentation boxes delivered with uncompromising freshness across Phnom Penh.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line><circle cx="12" cy="12" r="10"></circle></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+          <div style="font-size: 0.8125rem; color: #a89d9b; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="color: var(--accent-gold);">✦</span> 100% Farm-Fresh Guarantee
+          </div>
+        </div>
+
+        <!-- Column 2: Floral Collection -->
+        <div class="footer-col">
+          <h4>Floral Collections</h4>
+          <ul>
+            <li><a href="products.html">All Bouquets (60)</a></li>
+            <li><a href="products.html?cat=roses">Signature Velvet Roses</a></li>
+            <li><a href="products.html?cat=tulips">Fresh Holland Tulips</a></li>
+            <li><a href="products.html?cat=sunflowers">Vibrant Sunflowers</a></li>
+            <li><a href="products.html?cat=lilies">Scented Oriental Lilies</a></li>
+            <li><a href="products.html?cat=flower-boxes">Luxury Hatbox Arrangements</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Occasions & Gifting -->
+        <div class="footer-col">
+          <h4>Occasions &amp; Care</h4>
+          <ul>
+            <li><a href="products.html?cat=wedding">Bridal &amp; Wedding Blooms</a></li>
+            <li><a href="products.html?cat=occasions">Anniversary &amp; Romance</a></li>
+            <li><a href="products.html?cat=mixed">Curated Seasonal Edits</a></li>
+            <li><a href="cart.html">View Shopping Bag</a></li>
+            <li><a href="admin/index.html">Merchant Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Atelier & Concierge -->
+        <div class="footer-col">
+          <h4>Atelier Concierge</h4>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">Phnom Penh Atelier</strong>
+              <span>Preah Sihanouk Blvd, Phnom Penh</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">+855 (0) 23 888 999</strong>
+              <span>Daily: 8:00 AM – 7:00 PM</span>
+            </div>
+          </div>
+          <div class="atelier-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div>
+              <strong style="color: #ffffff; display: block;">concierge@bloomblossom.com</strong>
+              <span>Custom bespoke inquiries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust & Payment Methods -->
+      <div class="footer-trust-row">
+        <div>
+          <span>Accepted Payment Methods &amp; Secured Gateways</span>
+        </div>
+        <div class="payment-badges">
+          <span class="payment-pill">🇰🇭 KHQR Bakong</span>
+          <span class="payment-pill">ABA PAY</span>
+          <span class="payment-pill">Visa / Mastercard</span>
+          <span class="payment-pill">Cash on Delivery</span>
+          <span class="payment-pill" style="border-color: rgba(37, 102, 54, 0.4); color: #8dd99f;">🔒 256-Bit SSL</span>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <span>© 2026 Bloom &amp; Blossom Floral Boutique. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="products.html">Atelier Catalog</a>
+          <a href="admin/index.html">Admin Portal</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Delivery</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="assets/js/data/store.js"></script>
+  <script src="assets/js/shoply-theme.js"></script>
+  <script src="cart.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Views: 'cart' | 'delivery' | 'payment' | 'success'
+    let currentView = 'cart';
+    let lastOrder = null;
+    let checkoutData = {};
+
+    const STEPS = [
+      ['cart', '1. Shopping Bag'],
+      ['delivery', '2. Delivery Details'],
+      ['payment', '3. Payment'],
+      ['success', '4. Order Confirmation']
+    ];
+
+    function renderSteps() {
+      const el = document.getElementById('steps');
+      if (!el) return;
+      const at = STEPS.findIndex(s => s[0] === currentView);
+      el.innerHTML = STEPS.map((s, i) => `
+        <li class="${i < at || currentView === 'success' ? 'done' : ''} ${i === at ? 'current' : ''}" ${i === at ? 'aria-current="step"' : ''}>
+          <span class="dot">${i < at || currentView === 'success' ? '✓' : i + 1}</span>
+          <span>${s[1]}</span>
+        </li>`).join('');
+    }
+
+    function setTitle(title, subtitle) {
+      renderSteps();
+      const el = document.getElementById('page-title');
+      if (el) {
+        el.innerHTML = `<h2>${title}</h2><p>${subtitle}</p>`;
+      }
+    }
+
+    function orderSummaryHTML(cart, subtotal) {
+      const deliveryFee = 0;
+      const total = subtotal + deliveryFee;
+      return `
+        <h2>Order Summary</h2>
+        <div class="summary-lines">
+          ${cart.map(item => `
+            <div class="summary-line">
+              <span><strong>${item.qty}×</strong> ${item.name}</span>
+              <span>$${(item.price * item.qty).toFixed(2)}</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>$${subtotal.toFixed(2)}</span>
+        </div>
+        <div class="summary-row">
+          <span>Atelier Delivery</span>
+          <span style="color: var(--success); font-weight: 600;">Complimentary (Free)</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span style="color: var(--primary);">$${total.toFixed(2)}</span>
+        </div>`;
+    }
+
+    function renderCartPage() {
+      const container = document.getElementById('cart-content');
+      const cart = getCart();
+
+      if (currentView === 'success' && lastOrder) {
+        renderSuccess(container, lastOrder);
+        return;
+      }
+
+      if (!cart.length) {
+        currentView = 'cart';
+        setTitle('Your Shopping Bag', 'Review your floral choices');
+        container.innerHTML = `
+          <div class="cart-empty">
+            <div style="font-size: 3rem; margin-bottom: 12px;">🌸</div>
+            <h2>Your bag is currently empty</h2>
+            <p>You haven’t added any fresh floral arrangements yet.</p>
+            <a href="products.html" class="btn btn-primary btn-lg">Explore Our Bouquets</a>
+          </div>`;
+        return;
+      }
+
+      if (currentView === 'delivery') {
+        renderDelivery(container, cart);
+        return;
+      }
+
+      if (currentView === 'payment') {
+        renderPayment(container, cart);
+        return;
+      }
+
+      // Default: cart view
+      setTitle('Your Shopping Bag', 'Review your selections before checkout');
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      container.innerHTML = `
+        <div class="cart-layout">
+          <div class="cart-items">
+            ${cart.map((item, i) => `
+              <div class="cart-item">
+                <a href="product.html?id=${item.id}" class="cart-item-img-link" aria-label="${item.name}">
+                  <img src="${item.image}" alt="${item.name}" loading="lazy">
+                </a>
+                <div class="cart-item-info">
+                  <span class="cart-item-tag">🌸 Handcrafted Bouquet</span>
+                  <a href="product.html?id=${item.id}"><h3>${item.name}</h3></a>
+                  <div class="item-price">$${item.price.toFixed(2)} <span class="unit-price-label">/ arrangement</span></div>
+                  ${item.note ? `<div class="item-note">💌 Note: “${item.note}”</div>` : ''}
+                </div>
+                <div class="item-actions">
+                  <div class="item-total-badge">$${(item.price * item.qty).toFixed(2)}</div>
+                  <div class="qty-control">
+                    <button type="button" onclick="updateQty(${i}, ${item.qty - 1})" aria-label="Decrease quantity">−</button>
+                    <input type="number" value="${item.qty}" min="1" max="99" readonly aria-label="Quantity">
+                    <button type="button" onclick="updateQty(${i}, ${item.qty + 1})" aria-label="Increase quantity">+</button>
+                  </div>
+                  <button type="button" class="remove-btn" onclick="removeFromCart(${i})" aria-label="Remove ${item.name} from bag">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right: 3px;">
+                      <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="cart-summary">
+            ${orderSummaryHTML(cart, subtotal)}
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="go-delivery-btn">
+              Proceed to Delivery Details →
+            </button>
+            <p class="summary-note">
+              🔒 100% Secure Checkout · Freshness Guaranteed on Delivery
+            </p>
+          </div>
+        </div>`;
+
+      document.getElementById('go-delivery-btn').onclick = () => {
+        currentView = 'delivery';
+        renderCartPage();
+      };
+    }
+
+    function renderDelivery(container, cart) {
+      setTitle('Delivery & Recipient', 'Where should we hand-deliver your flowers?');
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const d = checkoutData;
+
+      container.innerHTML = `
+        <div class="back-row">
+          <button type="button" class="btn btn-outline btn-sm" id="back-to-cart">
+            ← Back to bag
+          </button>
+        </div>
+        <div class="cart-layout">
+          <div>
+            <form class="checkout-form" id="delivery-form">
+              <div class="checkout-section-title">Recipient &amp; Contact</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-name">Your Full Name *</label>
+                  <input type="text" id="co-name" name="name" required value="${d.name || ''}" placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                  <label for="co-email">Email Address *</label>
+                  <input type="email" id="co-email" name="email" required value="${d.email || ''}" placeholder="jane@example.com">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-phone">Phone Number *</label>
+                  <input type="tel" id="co-phone" name="phone" required value="${d.phone || ''}" placeholder="+1 (555) 012-3456">
+                </div>
+                <div class="form-group">
+                  <label for="co-recipient">Recipient Name (if gifting)</label>
+                  <input type="text" id="co-recipient" name="recipient" value="${d.recipient || ''}" placeholder="Leave blank if for yourself">
+                </div>
+              </div>
+
+              <div class="checkout-section-title" style="margin-top: 14px;">Delivery Address</div>
+              <div class="form-group">
+                <label for="co-address">Street Address *</label>
+                <input type="text" id="co-address" name="address" required value="${d.address || ''}" placeholder="123 Blossom Boulevard, Suite 4B">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-city">City *</label>
+                  <input type="text" id="co-city" name="city" required value="${d.city || ''}" placeholder="New York">
+                </div>
+                <div class="form-group">
+                  <label for="co-zip">ZIP / Postal Code *</label>
+                  <input type="text" id="co-zip" name="zip" required value="${d.zip || ''}" placeholder="10001">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="co-message">Handwritten Gift Card Message (Optional)</label>
+                <textarea id="co-message" name="message" placeholder="Add a personal greeting transcribed on fine Italian stationery...">${d.message || ''}</textarea>
+              </div>
+            </form>
+          </div>
+
+          <div class="cart-summary">
+            ${orderSummaryHTML(cart, subtotal)}
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="go-payment-btn">
+              Continue to Payment →
+            </button>
+            <button type="button" class="btn btn-outline btn-block" id="back-to-cart-bottom">
+              ← Back to Shopping Bag
+            </button>
+          </div>
+        </div>`;
+
+      const goBack = () => {
+        currentView = 'cart';
+        renderCartPage();
+      };
+      document.getElementById('back-to-cart').onclick = goBack;
+      document.getElementById('back-to-cart-bottom').onclick = goBack;
+
+      document.getElementById('go-payment-btn').onclick = () => {
+        const form = document.getElementById('delivery-form');
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const address = form.address.value.trim();
+        const city = form.city.value.trim();
+        const zip = form.zip.value.trim();
+
+        if (!name || !email || !phone || !address || !city || !zip) {
+          if (typeof showToast === 'function') {
+            showToast('Please fill in all required delivery fields.');
+          } else {
+            alert('Please fill in all required delivery fields.');
+          }
+          return;
+        }
+
+        checkoutData = {
+          name,
+          email,
+          phone,
+          address,
+          city,
+          zip,
+          recipient: form.recipient.value.trim() || name,
+          message: form.message.value.trim()
+        };
+
+        currentView = 'payment';
+        renderCartPage();
+      };
+    }
+
+    function renderPayment(container, cart) {
+      setTitle('Secure Payment', 'Choose your preferred payment method');
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      container.innerHTML = `
+        <div class="back-row">
+          <button type="button" class="btn btn-outline btn-sm" id="back-to-delivery">
+            ← Back to Delivery
+          </button>
+        </div>
+        <div class="cart-layout">
+          <div>
+            <div class="checkout-form">
+              <div class="checkout-section-title">Select Payment Method</div>
+
+              <div class="payment-methods" id="payment-methods">
+                <label class="payment-option active" data-method="khqr">
+                  <input type="radio" name="payment" value="KHQR" checked>
+                  <div class="pay-label">
+                    <strong>KHQR Universal QR Payment</strong>
+                    <span>Instant scan with ABA, ACLEDA, Wing or any KHQR banking app</span>
+                  </div>
+                </label>
+                <label class="payment-option" data-method="aba">
+                  <input type="radio" name="payment" value="ABA Mobile">
+                  <div class="pay-label">
+                    <strong>ABA Mobile Transfer</strong>
+                    <span>Direct merchant transfer from your ABA account</span>
+                  </div>
+                </label>
+                <label class="payment-option" data-method="cod">
+                  <input type="radio" name="payment" value="Cash on Delivery">
+                  <div class="pay-label">
+                    <strong>Cash on Hand Delivery</strong>
+                    <span>Pay directly to our delivery courier upon arrival</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- KHQR Panel -->
+              <div class="card-fields visible" id="khqr-fields">
+                <div class="checkout-section-title">Scan to Pay via KHQR</div>
+                <div class="khqr-payment-panel">
+                  <img src="images/merchant-khqr.png" alt="Merchant KHQR Payment Code" id="merchant-khqr-image">
+                  <p><strong>Merchant: Bloom &amp; Blossom Floral Boutique</strong></p>
+                  <p>Open your mobile banking app, scan the KHQR code above, and confirm the total of <strong>$${subtotal.toFixed(2)}</strong>.</p>
+                  <p class="field-hint">Compatible with all KHQR-enabled financial institutions and mobile wallets.</p>
+                </div>
+              </div>
+
+              <!-- ABA Panel -->
+              <div class="card-fields" id="aba-fields">
+                <div class="checkout-section-title">ABA Bank Direct Transfer</div>
+                <div class="khqr-payment-panel">
+                  <p><strong>ABA Account: 001 234 567 (Bloom &amp; Blossom Co., Ltd.)</strong></p>
+                  <p>Transfer the order total to our registered merchant account and paste your transaction reference ID below.</p>
+                  <div class="form-group" style="max-width: 420px; margin: 18px auto 0; text-align: left;">
+                    <label for="aba-reference">ABA Transaction Reference (Optional)</label>
+                    <input type="text" id="aba-reference" maxlength="80" placeholder="e.g. TRX-9823412">
+                  </div>
+                </div>
+              </div>
+
+              <!-- COD Panel -->
+              <div class="card-fields" id="cod-fields">
+                <div class="khqr-payment-panel">
+                  <p><strong>Cash on Delivery Selected</strong></p>
+                  <p>Our florist delivery courier will accept cash upon delivery at your provided address. Exact change is appreciated.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-summary">
+            ${orderSummaryHTML(cart, subtotal)}
+            <div class="deliver-to">
+              <strong>Delivering to</strong><br>
+              ${checkoutData.name}<br>
+              ${checkoutData.address}<br>
+              ${checkoutData.city}, ${checkoutData.zip}
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="place-order-btn">
+              Complete Order · $${subtotal.toFixed(2)}
+            </button>
+            <button type="button" class="btn btn-outline btn-block" id="back-to-delivery-bottom">
+              ← Edit Delivery Info
+            </button>
+          </div>
+        </div>`;
+
+      // Payment method tab switching
+      const options = container.querySelectorAll('.payment-option');
+      const paymentPanels = {
+        khqr: document.getElementById('khqr-fields'),
+        aba: document.getElementById('aba-fields'),
+        cod: document.getElementById('cod-fields')
+      };
+      const showPaymentPanel = method => Object.entries(paymentPanels).forEach(([key, panel]) => {
+        if (panel) panel.classList.toggle('visible', key === method);
+      });
+
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          options.forEach(o => o.classList.remove('active'));
+          opt.classList.add('active');
+          opt.querySelector('input').checked = true;
+          showPaymentPanel(opt.dataset.method);
+        });
+      });
+
+      const goBackToDelivery = () => {
+        currentView = 'delivery';
+        renderCartPage();
+      };
+
+      document.getElementById('back-to-delivery').onclick = goBackToDelivery;
+      document.getElementById('back-to-delivery-bottom').onclick = goBackToDelivery;
+
+      document.getElementById('place-order-btn').onclick = async () => {
+        const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || 'KHQR';
+        const placeBtn = document.getElementById('place-order-btn');
+        placeBtn.disabled = true;
+        placeBtn.textContent = 'Processing Order...';
+
+        const details = {
+          ...checkoutData,
+          paymentMethod,
+          paymentStatus: paymentMethod === 'Cash on Delivery' ? 'Pay on delivery' : 'Awaiting merchant verification',
+          paymentReference: document.getElementById('aba-reference')?.value.trim() || ''
+        };
+
+        const order = await placeOrder(details);
+        if (order) {
+          lastOrder = order;
+          checkoutData = {};
+          currentView = 'success';
+          renderCartPage();
+        } else {
+          placeBtn.disabled = false;
+          placeBtn.textContent = `Complete Order · $${subtotal.toFixed(2)}`;
+        }
+      };
+    }
+
+    function renderSuccess(container, order) {
+      setTitle('Order Confirmed', 'Thank you for choosing Bloom & Blossom');
+      const itemsHtml = order.items.map(it =>
+        `<div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+           <span>${it.qty}× ${it.name}</span>
+           <span>$${(it.price * it.qty).toFixed(2)}</span>
+         </div>`
+      ).join('');
+
+      container.innerHTML = `
+        <div class="order-success">
+          <div style="font-size: 3.5rem; margin-bottom: 12px;">💐</div>
+          <h2>Your Flowers Are Being Prepared</h2>
+          <p>Thank you, <strong>${order.customerName || 'valued customer'}</strong>! Your order has been scheduled with our floral atelier.</p>
+          <p>A detailed receipt has been sent to <strong>${order.email || 'your email'}</strong>.</p>
+
+          <div class="order-details">
+            <div><strong>Order Reference:</strong> ${order.id}</div>
+            <div><strong>Payment Method:</strong> ${order.paymentMethod}</div>
+            <div><strong>Payment Status:</strong> ${order.paymentStatus || 'Awaiting confirmation'}</div>
+            ${order.paymentReference ? `<div><strong>Reference Code:</strong> ${order.paymentReference}</div>` : ''}
+            <div><strong>Total Paid:</strong> $${order.total.toFixed(2)}</div>
+            <div style="border-top: 1px solid var(--border); margin: 16px 0; padding-top: 14px;">
+              <strong>Arrangements in Order:</strong>
+              <div style="margin-top: 8px;">${itemsHtml}</div>
+            </div>
+            ${order.address ? `<div style="border-top: 1px solid var(--border); margin: 16px 0; padding-top: 14px;"><strong>Delivering to:</strong> ${order.address}</div>` : ''}
+            ${order.message ? `<div style="border-top: 1px solid var(--border); margin: 16px 0; padding-top: 14px;"><strong>Handwritten Card Note:</strong> “${order.message}”</div>` : ''}
+          </div>
+
+          <a href="products.html" class="btn btn-primary btn-lg">Browse More Flowers</a>
+        </div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCartPage);
+  </script>
+</body>
+</html>
