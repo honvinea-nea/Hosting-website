@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings · Bloom & Blossom Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#111111', cream: '#F3EFE6', taupe: '#B8AA96',
+            navy: '#1E293B', muted: '#64748B', page: '#F8F8F6',
+            success: '#16A34A', warning: '#F59E0B', danger: '#DC2626'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            brand: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="bg-page text-navy font-sans">
+  <div id="sidebar-root"></div>
+  <div id="app-shell" class="app-shell">
+    <div id="topbar-root"></div>
+    <main class="p-4 md:p-6 lg:p-8">
+      <div id="settings-root"><p class="text-sm text-muted">Loading…</p></div>
+    </main>
+  </div>
+  <script src="../assets/js/data/store.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="../assets/js/admin/admin.js"></script>
+  <script src="../assets/js/admin/settings.js"></script>
+</body>
+</html>

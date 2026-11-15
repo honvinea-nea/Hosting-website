@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Login · Shoply</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#111111', cream: '#F3EFE6', taupe: '#B8AA96',
+            navy: '#1E293B', muted: '#64748B', page: '#F8F8F6'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            brand: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body { background:radial-gradient(ellipse at 15% 10%,#eaf0e9 0,transparent 42%),#f6f7f4!important; }
+    body > div { border:1px solid #e4e9e3!important; border-radius:22px!important; padding:38px!important; box-shadow:0 24px 70px rgba(25,45,32,.09)!important; }
+    h1 { font-family:Inter, sans-serif!important; font-weight:750!important; letter-spacing:-.06em!important; color:#203b2e!important; }
+    form label { color:#59675d!important; font-weight:600!important; }
+    form input { min-height:46px; border-radius:11px!important; background:#fafbf9!important; border-color:#e2e8e1!important; }
+    form input:focus { border-color:#648572!important; box-shadow:0 0 0 3px rgba(74,119,91,.12)!important; }
+    form button { min-height:46px; border-radius:11px!important; background:#254d3b!important; font-weight:650!important; }
+    form button:hover { background:#1d3e2f!important; }
+    @media(max-width:480px){ body{padding:16px!important} body>div{padding:26px!important} }
+  </style>
+
+</head>
+<body class="bg-page min-h-screen flex items-center justify-center p-6 font-sans">
+  <div class="w-full max-w-md rounded-2xl border border-[#ece8df] bg-white p-8 shadow-sm">
+    <h1 class="font-brand text-2xl text-ink text-center">Shoply</h1>
+    <p class="text-center text-xs tracking-widest text-taupe font-semibold mt-1">ADMIN CONTROL CENTER</p>
+    <p class="text-center text-sm text-muted mt-4 mb-6">Sign in to your administrator account</p>
+    <div id="err" class="hidden mb-4 rounded-xl bg-red-50 text-red-700 text-sm px-3 py-2"></div>
+    <form id="form" class="space-y-4">
+      <div>
+        <label class="block text-xs font-medium text-muted mb-1.5">Email</label>
+        <input type="email" id="email" autocomplete="username" required class="w-full rounded-xl border border-[#ece8df] bg-page px-3 py-2.5 text-sm focus:outline-none focus:border-ink" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-muted mb-1.5">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required class="w-full rounded-xl border border-[#ece8df] bg-page px-3 py-2.5 text-sm focus:outline-none focus:border-ink" />
+      </div>
+      <button type="submit" class="w-full rounded-xl bg-ink text-white py-2.5 text-sm font-medium hover:bg-navy">Sign in</button>
+    </form>
+    <p class="text-center text-xs text-muted mt-5">Sign in with your administrator email and password.</p>
+    <p id="server-status" class="text-center text-[11px] leading-relaxed text-muted mt-3" role="status">Connecting to the secure admin service…</p>
+  </div>
+  <script>
+    const form = document.getElementById('form');
+    const errorBox = document.getElementById('err');
+    const serverStatus = document.getElementById('server-status');
+    fetch('/api/admin/auth/me', { credentials: 'same-origin' })
+      .then(response => {
+        if (response.ok) location.replace('index.html');
+        else if (response.status === 401) serverStatus.textContent = 'Admin sign-in is ready.';
+        else serverStatus.textContent = 'Admin service is not configured. Start the backend and check its database setup.';
+      })
+      .catch(() => { serverStatus.textContent = 'Admin service is unavailable. Start the backend and try again.'; });
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      errorBox.classList.add('hidden');
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      button.textContent = 'Signing in…';
+      try {
+        const response = await fetch('/api/admin/auth/login', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+          })
+        });
+        const responseText = await response.text();
+        let result = {};
+        if (responseText) {
+          try {
+            result = JSON.parse(responseText);
+          } catch {
+            throw new Error('The admin server returned an invalid response. Start the backend at this site and check its database setup.');
+          }
+        } else if (response.ok) {
+          throw new Error('The admin server returned an empty response. Start the backend at this site and try again.');
+        }
+        if (!response.ok) throw new Error(result.error?.message || 'Sign-in failed.');
+        location.replace('index.html');
+      } catch (error) {
+        errorBox.textContent = error.message || 'Unable to contact the admin service.';
+        errorBox.classList.remove('hidden');
+        button.disabled = false;
+        button.textContent = 'Sign in';
+      }
+    });
+  </script>
+</body>
+</html>
